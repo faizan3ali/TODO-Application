@@ -24,3 +24,7 @@ to install lodash
 
 
 ![image](https://user-images.githubusercontent.com/59663260/229498954-d2a92cf5-0a27-4094-902b-215ddc9ed73a.png)
+
+
+![image](https://user-images.githubusercontent.com/59663260/229499603-b560a42b-8fbc-4862-96fd-5facbf698db3.png)
+
