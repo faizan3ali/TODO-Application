@@ -7,7 +7,7 @@
 3)npm runstart 
 --------------------------------------------------------------
 #for frontend
-1)fo to frontend folder
+1)go to frontend folder
 2)install node packeges => npm i
 3)ng serve
 --------------------------------------------------------------
