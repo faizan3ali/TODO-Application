@@ -57,7 +57,7 @@ export class DashboardComponent implements OnInit {
         ]);
       if (this.filter == '-createdAt')
         this.allItems = _.sortBy(this.allItems, [
-          function (o) {
+          function (o:any) {
             return o.createdAt;
           },
         ]);
