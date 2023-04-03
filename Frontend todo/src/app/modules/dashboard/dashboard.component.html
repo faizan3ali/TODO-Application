@@ -1,0 +1,137 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+
+<div *ngIf="!createTodo">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="btn btn-outline-success my-2 " type="submit"
+  (click)="createTodo=!createTodo"
+  style="
+  color: white;
+  background: #4f46f8;
+">Create Item</button>
+  <button class="btn btn-outline-success my-2 ml-2 my-sm-0" type="submit"
+  (click)="logout()"
+  style="
+  color: white;
+  background: #4f46f8;
+">logout</button>
+
+</nav>
+
+<div class="container">
+
+<p class="h3 m-4" style="
+
+" >To do app </p>
+
+
+
+<label for="select">Filter by
+<select  (change)="filters()"  [(ngModel)]="filter" placeholder="filter">
+
+  <option value="-createdAt">created at</option>
+  <option value="-name">name</option>
+</select>
+</label>
+
+
+
+
+<table class="table ">
+    <thead class="thead" style="background: #f4f4f9;color: #7a7a7a;">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Status</th>
+        <th scope="col" >Action</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of allItems">
+
+        <td scope="col">{{item.name}}</td>
+        <td scope="col">{{item.description}}
+
+
+        </td>
+
+
+        <td scope="col mw-75"><input type="checkbox"   *ngIf="!item.status" class="m-2" (click)="updateStatus(item)">
+        <span class="m-2  " *ngIf="item.status;else inprogress">Completed</span>
+        <ng-template  #inprogress>ToDo</ng-template>
+
+
+        </td>
+
+        <td scope="col">
+            <button class="btn btn-outline-danger my-2 m-2 my-sm-0" type="submit" style="
+
+"
+            (click)="deleteItem(item._id)">Delete</button>
+            <button class="btn btn-primary"  (click)="updateTodo(item);createTodo=!createTodo"
+            >Edit</button>
+        </td>
+
+      </tr>
+
+    </tbody>
+  </table>
+  <div id="app" class="container">
+    <ul class="page"  >
+
+        <li class="page__btn"><span class="material-icons"><</span></li>
+<span *ngFor="let item of paginationAray; let i = index">
+          <li class="page__numbers" (click)="paginations(i)"> {{i+1}}</li>
+        </span>
+        <li class="page__btn"><span class="material-icons">></span></li>
+      </ul>
+    </div>
+</div>
+</div>
+
+
+<section class="get-in-touch" *ngIf="createTodo">
+  <h1 class="title">todo item</h1>
+  <form [formGroup]="todoItem" class="contact-form row" >
+     <div class="form-field col-lg-6">
+        <input id="name" class="input-text js-input" type="text"  formControlName="name" required>
+        <label class="label" for="name">Name</label>
+     </div>
+     <div class="form-field col-lg-6 ">
+        <input id="email" class="input-text js-input" type="email"  formControlName="description" required>
+        <label class="label" for="email">Description</label>
+     </div>
+
+     <div class="form-field col-lg-12">
+        <input  (click)="createAndUpdateTodoItem()" class="submit-btn" type="submit" value="Submit">
+        <input  (click)="createTodo=!createTodo" class="submit-btn mr-3" type="submit" value="Cancel">
+     </div>
+
+  </form>
+</section>
+
+
+<!-- <section class="get-in-touch" *ngIf="EditTodo">
+  <h1 class="title">Create a todo item</h1>
+  <form [formGroup]="todoItem" class="contact-form row" >
+     <div class="form-field col-lg-6">
+        <input id="name" class="input-text js-input" type="text"  formControlName="name" required>
+        <label class="label" for="name">Name</label>
+     </div>
+     <div class="form-field col-lg-6 ">
+        <input id="email" class="input-text js-input" type="email"  formControlName="description" required>
+        <label class="label" for="email">Description</label>
+     </div>
+
+     <div class="form-field col-lg-12">
+        <input  (click)="EditTodoItem()" class="submit-btn" type="submit" value="Submit">
+        <input  (click)="EditTodo=!EditTodo" class="submit-btn mr-3" type="submit" value="Cancel">
+     </div>
+
+  </form>
+</section> -->
+
+
+

@@ -1,0 +1,22 @@
+<div class="wrapper">
+  <div class="">
+
+  </div>
+  <div class="text-center mt-4 name">
+    <h3 class="text-center">Todo App</h3>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-field d-flex align-items-center">
+          <span class="far fa-user"></span>
+          <input type="text" formControlName="username"  id="username" placeholder="username">
+      </div>
+      <div class="form-field d-flex align-items-center">
+          <span class="fas fa-key"></span>
+          <input type="password"  formControlName="password" required id="pwd" placeholder="Password">
+      </div>
+      <button class="btn mt-3" type="submit" >Login</button>
+  </form>
+  <div class="text-center fs-6">
+
+  </div>
+</div>
